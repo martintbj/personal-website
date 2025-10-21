@@ -47,12 +47,15 @@ This portfolio website serves as a comprehensive showcase of my professional exp
 
 | Feature | Description |
 |---------|-------------|
-| **Hero Section** | Dynamic typing effect showcasing multiple roles with call-to-action buttons |
+| **Hero Section** | Dynamic typing effect with Framer Motion animations and call-to-action buttons |
 | **About** | Professional background, education, and career objectives |
 | **Experience Timeline** | Interactive timeline visualization of work history |
-| **Project Showcase** | Featured projects with technology stacks and live demos |
+| **Project Showcase** | Featured projects with detailed case studies and GitHub links |
+| **Case Studies** | In-depth project breakdowns with tabs for Overview, Technical, Metrics, and Lessons |
+| **Blog Section** | Technical articles about projects with Markdown rendering |
 | **Skills Matrix** | Comprehensive display of technical competencies by category |
-| **Contact Form** | Integrated Formspree contact form with validation |
+| **Contact Form** | Integrated Formspree contact form with validation and success modal |
+| **Advanced Animations** | Framer Motion animations throughout with smooth transitions |
 | **Smooth Scrolling** | Enhanced navigation with scroll progress indicator |
 | **Dark Theme** | Modern dark mode design with cyan/blue accent colors |
 
@@ -69,10 +72,37 @@ This portfolio website serves as a comprehensive showcase of my professional exp
 
 ### Additional Tools
 
+- **[Framer Motion](https://www.framer.com/motion/)** — Production-ready animation library
+- **[React Markdown](https://github.com/remarkjs/react-markdown)** — Markdown rendering for blog posts
 - **PostCSS** — CSS processing and optimization
 - **Autoprefixer** — Automatic vendor prefix handling
 - **Formspree** — Contact form backend integration
 - **GitHub Actions** — CI/CD pipeline for automated deployment
+
+---
+
+## Featured Projects
+
+### SuriMed - AI-Assisted Fracture Screening
+Research project at Baylor College of Medicine exploring AI-powered fracture detection for underserved communities. Uses multi-input DenseNet169 to analyze three X-ray views.
+
+**Tech:** Python, DenseNet169, TensorFlow, OpenCV, Pandas
+
+[View on GitHub](https://github.com/martintbj/surimed)
+
+### Museum Database Management System
+Academic full-stack project for COSC3380 Databases course. Features role-based access control, data visualization, and complex SQL queries.
+
+**Tech:** React, Express.js, MySQL, Chart.js, Railway
+
+[View on GitHub](https://github.com/martintbj/Museum-Database)
+
+### Yumi Tomball Cafe Website
+Mobile-first website for local cafe with digital menu and contact information. Drove 200%+ increase in online inquiries.
+
+**Tech:** HTML, CSS, JavaScript
+
+[View on GitHub](https://github.com/martintbj/yumi-website)
 
 ---
 
@@ -128,15 +158,19 @@ personal-website/
 ├── src/
 │   ├── components/
 │   │   ├── About.jsx           # About section
+│   │   ├── Blog.jsx            # Blog section with articles
 │   │   ├── Contact.jsx         # Contact form and info
 │   │   ├── Experience.jsx      # Work experience timeline
 │   │   ├── Footer.jsx          # Site footer
-│   │   ├── Hero.jsx            # Landing hero section
+│   │   ├── Hero.jsx            # Landing hero section with animations
 │   │   ├── Navigation.jsx      # Main navigation bar
-│   │   ├── Projects.jsx        # Project showcase
+│   │   ├── ProjectsEnhanced.jsx # Project showcase with case studies
 │   │   ├── Skills.jsx          # Skills matrix
 │   │   ├── ScrollProgress.jsx  # Scroll indicator
 │   │   └── BackToTop.jsx       # Back to top button
+│   ├── data/
+│   │   ├── blogPosts.js        # Blog article content
+│   │   └── projectCaseStudies.js # Detailed case study data
 │   ├── hooks/
 │   │   ├── useTypingEffect.js  # Typing animation hook
 │   │   └── useScrollAnimation.js # Scroll animation hook
@@ -189,9 +223,44 @@ This project is configured for automatic deployment via GitHub Actions:
 | **Hero** | `src/components/Hero.jsx` | Name, roles, introduction |
 | **About** | `src/components/About.jsx` | Background, education |
 | **Experience** | `src/components/Experience.jsx` | Work history |
-| **Projects** | `src/components/Projects.jsx` | Portfolio projects |
+| **Projects** | `src/components/ProjectsEnhanced.jsx` | Portfolio projects |
+| **Blog** | `src/data/blogPosts.js` | Blog articles and content |
+| **Case Studies** | `src/data/projectCaseStudies.js` | Detailed project breakdowns |
 | **Skills** | `src/components/Skills.jsx` | Technical skills |
 | **Contact** | `src/components/Contact.jsx` | Contact information |
+
+### Adding Blog Posts
+
+Edit `src/data/blogPosts.js` to add new articles:
+
+```javascript
+{
+  id: 4,
+  title: 'Your Article Title',
+  slug: 'article-slug',
+  date: '2024-12-15',
+  readTime: '5 min read',
+  category: 'Full Stack',
+  excerpt: 'Brief description...',
+  tags: ['React', 'Node.js'],
+  content: `
+# Your Article Content
+Write in Markdown format...
+  `
+}
+```
+
+### Adding Case Studies
+
+Edit `src/data/projectCaseStudies.js` and add the case study slug to your project in `ProjectsEnhanced.jsx`:
+
+```javascript
+{
+  title: 'Your Project',
+  caseStudy: 'your-project-slug', // Links to case study
+  // ... other fields
+}
+```
 
 ### Updating Social Links
 

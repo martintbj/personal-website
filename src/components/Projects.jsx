@@ -1,7 +1,12 @@
-import React from 'react'
-import { ExternalLink, Github, Database, ShoppingCart, Activity, Coffee } from 'lucide-react'
+import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ExternalLink, Github, Database, ShoppingCart, Activity, Coffee, X, BookOpen, Code, TrendingUp, CheckCircle, Lightbulb, Target } from 'lucide-react'
+import { projectCaseStudies } from '../data/projectCaseStudies'
 
 const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState(null)
+  const [activeTab, setActiveTab] = useState('overview')
+
   const projects = [
     {
       title: 'AI Medical Imaging: SuriMed X-Ray Fracture Detection',
@@ -11,6 +16,8 @@ const Projects = () => {
       technologies: ['Python', 'YoloV5', 'TensorFlow', 'OpenCV'],
       icon: Activity,
       color: 'from-red-500 to-pink-500',
+      github: 'https://github.com/martintbj/surimed',
+      caseStudy: 'surimed',
     },
     {
       title: 'E-Commerce Business Development',
@@ -31,6 +38,7 @@ const Projects = () => {
       icon: Database,
       color: 'from-blue-500 to-cyan-500',
       github: 'https://github.com/martintbj/Museum-Database',
+      caseStudy: 'museum-database',
     },
     {
       title: 'Yumi Tomball Cafe',
@@ -40,6 +48,8 @@ const Projects = () => {
       technologies: ['HTML/CSS', 'JavaScript', 'React.js', 'Firebase', 'Google Maps API'],
       icon: Coffee,
       color: 'from-orange-500 to-yellow-500',
+      github: 'https://github.com/martintbj/yumi-website',
+      caseStudy: 'yumi-website',
     },
     {
       title: 'Pharmacy Data Analytics Dashboard',

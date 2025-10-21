@@ -3,8 +3,9 @@ import Navigation from './components/Navigation'
 import Hero from './components/Hero'
 import About from './components/About'
 import Experience from './components/Experience'
-import Projects from './components/Projects'
+import ProjectsEnhanced from './components/ProjectsEnhanced'
 import Skills from './components/Skills'
+import Blog from './components/Blog'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollProgress from './components/ScrollProgress'
@@ -30,8 +31,9 @@ function App() {
         <Hero />
         <About />
         <Experience />
-        <Projects />
+        <ProjectsEnhanced />
         <Skills />
+        <Blog />
         <Contact />
       </main>
       <Footer />
